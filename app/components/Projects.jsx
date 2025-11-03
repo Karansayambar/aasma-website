@@ -1,281 +1,494 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
+const projects = [
+  {
+    id: 1,
+    name: "Aasma Enclave 1",
+    location: "Pending (location details to be added)",
+    type: "Pending (property type to be added)",
+    price: "Pending (pricing details to be added)",
+    status: "Pending (current project status to be added)",
+    completion: "Pending (completion date to be confirmed)",
+    image: "../01.jpg",
+    features: ["Pending (features list to be updated)"],
+    units: "Pending (unit count to be added)",
+    description: "Pending (project description to be added).",
+  },
+  {
+    id: 2,
+    name: "Aasma Enclave 2",
+    location: "Pending (location details to be added)",
+    type: "Pending (property type to be added)",
+    price: "Pending (pricing details to be added)",
+    status: "Pending (current project status to be added)",
+    completion: "Pending (completion date to be confirmed)",
+    image: "../02.png",
+    features: ["Pending (features list to be updated)"],
+    units: "Pending (unit count to be added)",
+    description: "Pending (project description to be added).",
+  },
+  {
+    id: 3,
+    name: "Aasma Enclave 3",
+    location: "Pending (location details to be added)",
+    type: "Pending (property type to be added)",
+    price: "Pending (pricing details to be added)",
+    status: "Pending (current project status to be added)",
+    completion: "Pending (completion date to be confirmed)",
+    image: "../03.jpeg",
+    features: ["Pending (features list to be updated)"],
+    units: "Pending (unit count to be added)",
+    description: "Pending (project description to be added).",
+  },
+  {
+    id: 4,
+    name: "Aasma Enclave 4",
+    location: "Pending (location details to be added)",
+    type: "Pending (property type to be added)",
+    price: "Pending (pricing details to be added)",
+    status: "Pending (current project status to be added)",
+    completion: "Pending (completion date to be confirmed)",
+    image: "../04.jpeg",
+    features: ["Pending (features list to be updated)"],
+    units: "Pending (unit count to be added)",
+    description: "Pending (project description to be added).",
+  },
+  {
+    id: 5,
+    name: "Aasma Enclave 5",
+    location: "Pending (location details to be added)",
+    type: "Pending (property type to be added)",
+    price: "Pending (pricing details to be added)",
+    status: "Pending (current project status to be added)",
+    completion: "Pending (completion date to be confirmed)",
+    image: "../05.jpeg",
+    features: ["Pending (features list to be updated)"],
+    units: "Pending (unit count to be added)",
+    description: "Pending (project description to be added).",
+  },
+  {
+    id: 6,
+    name: "Aasma Enclave 6",
+    location: "Pending (location details to be added)",
+    type: "Pending (property type to be added)",
+    price: "Pending (pricing details to be added)",
+    status: "Pending (current project status to be added)",
+    completion: "Pending (completion date to be confirmed)",
+    image: "../06.jpg",
+    features: ["Pending (features list to be updated)"],
+    units: "Pending (unit count to be added)",
+    description: "Pending (project description to be added).",
+  },
+  {
+    id: 7,
+    name: "Aasma Enclave 7",
+    location: "Pending (location details to be added)",
+    type: "Pending (property type to be added)",
+    price: "Pending (pricing details to be added)",
+    status: "Pending (current project status to be added)",
+    completion: "Pending (completion date to be confirmed)",
+    image: "../07.jpg",
+    features: ["Pending (features list to be updated)"],
+    units: "Pending (unit count to be added)",
+    description: "Pending (project description to be added).",
+  },
+  {
+    id: 8,
+    name: "Aasma Enclave 8",
+    location: "Pending (location details to be added)",
+    type: "Pending (property type to be added)",
+    price: "Pending (pricing details to be added)",
+    status: "Pending (current project status to be added)",
+    completion: "Pending (completion date to be confirmed)",
+    image: "../08.jpg",
+    features: ["Pending (features list to be updated)"],
+    units: "Pending (unit count to be added)",
+    description: "Pending (project description to be added).",
+  },
+  {
+    id: 9,
+    name: "Aasma Enclave 9",
+    location: "Pending (location details to be added)",
+    type: "Pending (property type to be added)",
+    price: "Pending (pricing details to be added)",
+    status: "Pending (current project status to be added)",
+    completion: "Pending (completion date to be confirmed)",
+    image: "../09.jpg",
+    features: ["Pending (features list to be updated)"],
+    units: "Pending (unit count to be added)",
+    description: "Pending (project description to be added).",
+  },
+  {
+    id: 10,
+    name: "Aasma Enclave 10",
+    location: "Pending (location details to be added)",
+    type: "Pending (property type to be added)",
+    price: "Pending (pricing details to be added)",
+    status: "Pending (current project status to be added)",
+    completion: "Pending (completion date to be confirmed)",
+    image: "../10.jpg",
+    features: ["Pending (features list to be updated)"],
+    units: "Pending (unit count to be added)",
+    description: "Pending (project description to be added).",
+  },
+  {
+    id: 11,
+    name: "Aasma Enclave 11",
+    location: "Pending (location details to be added)",
+    type: "Pending (property type to be added)",
+    price: "Pending (pricing details to be added)",
+    status: "Pending (current project status to be added)",
+    completion: "Pending (completion date to be confirmed)",
+    image: "../11.jpg",
+    features: ["Pending (features list to be updated)"],
+    units: "Pending (unit count to be added)",
+    description: "Pending (project description to be added).",
+  },
+  {
+    id: 12,
+    name: "Aasma Enclave 12",
+    location: "Pending (location details to be added)",
+    type: "Pending (property type to be added)",
+    price: "Pending (pricing details to be added)",
+    status: "Pending (current project status to be added)",
+    completion: "Pending (completion date to be confirmed)",
+    image: "../12.jpg",
+    features: ["Pending (features list to be updated)"],
+    units: "Pending (unit count to be added)",
+    description: "Pending (project description to be added).",
+  },
+  {
+    id: 13,
+    name: "Aasma Enclave 13",
+    location: "Pending (location details to be added)",
+    type: "Pending (property type to be added)",
+    price: "Pending (pricing details to be added)",
+    status: "Pending (current project status to be added)",
+    completion: "Pending (completion date to be confirmed)",
+    image: "../13.jpg",
+    features: ["Pending (features list to be updated)"],
+    units: "Pending (unit count to be added)",
+    description: "Pending (project description to be added).",
+  },
+  {
+    id: 14,
+    name: "Aasma Enclave 14",
+    location: "Pending (location details to be added)",
+    type: "Pending (property type to be added)",
+    price: "Pending (pricing details to be added)",
+    status: "Pending (current project status to be added)",
+    completion: "Pending (completion date to be confirmed)",
+    image: "../14.jpg",
+    features: ["Pending (features list to be updated)"],
+    units: "Pending (unit count to be added)",
+    description: "Pending (project description to be added).",
+  },
+  {
+    id: 15,
+    name: "Aasma Enclave 15",
+    location: "Pending (location details to be added)",
+    type: "Pending (property type to be added)",
+    price: "Pending (pricing details to be added)",
+    status: "Pending (current project status to be added)",
+    completion: "Pending (completion date to be confirmed)",
+    image: "../15.jpg",
+    features: ["Pending (features list to be updated)"],
+    units: "Pending (unit count to be added)",
+    description: "Pending (project description to be added).",
+  },
+
+  // 🏢 Zainab Palace projects
+  {
+    id: 16,
+    name: "Zainab Palace 1",
+    location: "Pending (location details to be added)",
+    type: "Pending (property type to be added)",
+    price: "Pending (pricing details to be added)",
+    status: "Pending (current project status to be added)",
+    completion: "Pending (completion date to be confirmed)",
+    image: "../zainab1.jpg",
+    features: ["Pending (features list to be updated)"],
+    units: "Pending (unit count to be added)",
+    description: "Pending (project description to be added).",
+  },
+  {
+    id: 17,
+    name: "Zainab Palace 2",
+    location: "Pending (location details to be added)",
+    type: "Pending (property type to be added)",
+    price: "Pending (pricing details to be added)",
+    status: "Pending (current project status to be added)",
+    completion: "Pending (completion date to be confirmed)",
+    image: "../zainab2.jpg",
+    features: ["Pending (features list to be updated)"],
+    units: "Pending (unit count to be added)",
+    description: "Pending (project description to be added).",
+  },
+];
 
 const Projects = () => {
-  const projects = [
-    {
-      id: 1,
-      name: "Aasma enclave 10",
-      location: "Downtown District",
-      type: "Luxury Apartments",
-      price: "Starting from $850,000",
-      status: "Under Construction",
-      completion: "Q4 2024",
-      image: "../01.jpg",
-      // image:
-      //   "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
-      features: ["Swimming Pool", "Gym", "24/7 Security", "Parking"],
-      units: "85 units",
-      description:
-        "Modern luxury living in the heart of the city with panoramic views and premium amenities.",
-    },
-    {
-      id: 2,
-      name: "Aasma enclave 11",
-      location: "Waterfront Area",
-      type: "Condominiums",
-      price: "Starting from $650,000",
-      status: "Pre-Launch",
-      completion: "Q2 2025",
-      image: "../02.png",
-
-      // image:
-      //   "https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
-      features: [
-        "River View",
-        "Private Balconies",
-        "Clubhouse",
-        "Landscaped Gardens",
-      ],
-      units: "120 units",
-      description:
-        "Elegant waterfront living with contemporary design and sustainable features.",
-    },
-    {
-      id: 3,
-      name: "Aasma enclave 12",
-      location: "Suburban Hills",
-      type: "Villas",
-      price: "Starting from $1,200,000",
-      status: "Ready to Move",
-      completion: "Completed",
-      image: "../03.jpeg",
-      // image:
-      //   "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
-      features: [
-        "Private Gardens",
-        "Smart Home",
-        "Community Center",
-        "Play Areas",
-      ],
-      units: "45 villas",
-      description:
-        "Spacious villas surrounded by nature with modern amenities and privacy.",
-    },
-    {
-      id: 4,
-      name: "Aasma enclave 13",
-      location: "Suburban Hills",
-      type: "Villas",
-      price: "Starting from $1,200,000",
-      status: "Ready to Move",
-      completion: "Completed",
-      image: "../04.jpeg",
-      // image:
-      //   "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
-      features: [
-        "Private Gardens",
-        "Smart Home",
-        "Community Center",
-        "Play Areas",
-      ],
-      units: "45 villas",
-      description:
-        "Spacious villas surrounded by nature with modern amenities and privacy.",
-    },
-    {
-      id: 5,
-      name: "Aasma enclave 15",
-      location: "Suburban Hills",
-      type: "Villas",
-      price: "Starting from $1,200,000",
-      status: "Ready to Move",
-      completion: "Completed",
-      image: "../05.jpeg",
-      // image:
-      //   "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
-      features: [
-        "Private Gardens",
-        "Smart Home",
-        "Community Center",
-        "Play Areas",
-      ],
-      units: "45 villas",
-      description:
-        "Spacious villas surrounded by nature with modern amenities and privacy.",
-    },
-  ];
+  const [filter, setFilter] = useState("All");
 
   const getStatusColor = (status) => {
     switch (status) {
       case "Ready to Move":
-        return "bg-green-100 text-green-800";
+        return "bg-emerald-500/90 text-white";
       case "Under Construction":
-        return "bg-blue-100 text-blue-800";
+        return "bg-amber-500/90 text-white";
       case "Pre-Launch":
-        return "bg-purple-100 text-purple-800";
+        return "bg-blue-500/90 text-white";
       default:
-        return "bg-gray-100 text-gray-800";
+        return "bg-neutral-500/90 text-white";
     }
   };
 
-  return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      {/* Header Section */}
-      <div className="max-w-7xl mx-auto text-center mb-16">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          Featured Real Estate Projects
-        </h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Discover our premium collection of residential properties designed for
-          modern living
-        </p>
-      </div>
+  const filters = ["All", "Residential", "Commercial"];
+  const filteredProjects =
+    filter === "All" ? projects : projects.filter((p) => p.type === filter);
 
-      {/* Projects Grid */}
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-            >
-              {/* Project Image */}
-              <div className="relative h-84 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.name}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                />
-                <div className="absolute top-4 right-4">
-                  <span
-                    className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(
-                      project.status
-                    )}`}
-                  >
-                    {project.status}
-                  </span>
-                </div>
-              </div>
+  const ProjectCard = ({ project, index }) => {
+    const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: true });
 
-              {/* Project Details */}
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-3">
-                  <h3 className="text-xl font-bold text-gray-900">
-                    {project.name}
-                  </h3>
-                  <span className="text-lg font-semibold text-blue-600">
-                    {project.price}
-                  </span>
-                </div>
+    return (
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 50 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, delay: index * 0.1 }}
+        whileHover={{ y: -8 }}
+        className="group bg-white overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+      >
+        {/* Image Container */}
+        <div className="relative h-100 overflow-hidden">
+          <img
+            src={project.image}
+            alt={project.name}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-                <div className="flex items-center text-gray-600 mb-3">
-                  <svg
-                    className="w-4 h-4 mr-1"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span className="text-sm">{project.location}</span>
-                </div>
+          {/* Status Badge */}
+          <div
+            className={`absolute top-6 right-6 px-4 py-2 ${getStatusColor(
+              project.status
+            )} font-semibold text-sm backdrop-blur-sm`}
+          >
+            {project.status}
+          </div>
 
-                <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                  {project.description}
-                </p>
+          {/* Type Badge */}
+          <div className="absolute top-6 left-6 px-4 py-2 bg-white/90 text-neutral-900 font-semibold text-sm backdrop-blur-sm">
+            {project.type}
+          </div>
 
-                {/* Project Specs */}
-                <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
-                  <div className="flex items-center text-gray-600">
-                    <svg
-                      className="w-4 h-4 mr-2"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
-                    </svg>
-                    {project.type}
-                  </div>
-                  <div className="flex items-center text-gray-600">
-                    <svg
-                      className="w-4 h-4 mr-2"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    {project.units}
-                  </div>
-                </div>
-
-                {/* Features */}
-                <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-gray-900 mb-2">
-                    Key Features
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.features.map((feature, index) => (
-                      <span
-                        key={index}
-                        className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-md"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* CTA Button */}
-                <button className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center">
-                  View Project Details
-                  <svg
-                    className="w-4 h-4 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Bottom CTA */}
-      <div className="max-w-7xl mx-auto mt-16 text-center">
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
-          <h2 className="text-2xl font-bold mb-4">
-            Ready to Find Your Dream Home?
-          </h2>
-          <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-            Schedule a private tour and explore our premium real estate projects
-            with our expert consultants.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200">
-              Schedule a Tour
-            </button>
-            <button className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200">
-              Download Brochure
-            </button>
+          {/* Bottom Info Overlay */}
+          <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+            <h3 className="text-2xl font-bold mb-1">{project.name}</h3>
+            <p className="text-sm text-white/90 flex items-center gap-2">
+              <span>📍</span> {project.location}
+            </p>
           </div>
         </div>
+
+        {/* Content */}
+        <div className="p-6">
+          <p className="text-neutral-600 text-sm leading-relaxed mb-6 line-clamp-2">
+            {project.description}
+          </p>
+
+          {/* Price & Area */}
+          <div className="flex items-center justify-between mb-6 pb-6 border-b border-neutral-200">
+            <div>
+              <div className="text-xs text-neutral-500 uppercase tracking-wider mb-1">
+                Starting Price
+              </div>
+              <div className="text-xl font-bold text-amber-600">
+                {project.price}
+              </div>
+            </div>
+            <div className="text-right">
+              <div className="text-xs text-neutral-500 uppercase tracking-wider mb-1">
+                Area
+              </div>
+              <div className="text-sm font-semibold text-neutral-900">
+                {project.area}
+              </div>
+            </div>
+          </div>
+
+          {/* Features */}
+          <div className="flex flex-wrap gap-2 mb-6">
+            {project.features.map((feature, i) => (
+              <span
+                key={i}
+                className="px-3 py-1.5 bg-neutral-100 text-neutral-700 text-xs font-medium"
+              >
+                {feature}
+              </span>
+            ))}
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex gap-3">
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex-1 bg-neutral-900 hover:bg-amber-500 text-white py-3 font-semibold transition-all duration-300 flex items-center justify-center gap-2"
+            >
+              View Details
+              <span>→</span>
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="px-6 py-3 border-2 border-neutral-900 hover:bg-neutral-900 hover:text-white text-neutral-900 font-semibold transition-all duration-300"
+            >
+              📞
+            </motion.button>
+          </div>
+        </div>
+      </motion.div>
+    );
+  };
+
+  return (
+    <section className="min-h-screen bg-white py-24 px-6 lg:px-12">
+      {/* Header */}
+      <div className="max-w-7xl mx-auto mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <div className="inline-block mb-4">
+            <span className="text-amber-500 text-sm font-semibold tracking-[0.3em] uppercase border-l-4 border-amber-500 pl-4">
+              Our Portfolio
+            </span>
+          </div>
+          <h1 className="text-5xl md:text-6xl font-bold text-neutral-900 mb-6">
+            Signature Projects
+          </h1>
+          <p className="text-xl text-neutral-600 max-w-3xl mx-auto font-light leading-relaxed">
+            Experience a new definition of urban luxury with our handpicked
+            developments designed for comfort, elegance, and lifestyle
+            excellence.
+          </p>
+        </motion.div>
+
+        {/* Filters */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="flex justify-center gap-4 flex-wrap"
+        >
+          {filters.map((f) => (
+            <motion.button
+              key={f}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => setFilter(f)}
+              className={`px-8 py-3 font-semibold transition-all duration-300 ${
+                filter === f
+                  ? "bg-neutral-900 text-white"
+                  : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200"
+              }`}
+            >
+              {f}
+            </motion.button>
+          ))}
+        </motion.div>
       </div>
-    </div>
+
+      {/* Project Grid */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+        {filteredProjects.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} />
+        ))}
+      </div>
+
+      {/* Stats Bar */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="max-w-7xl mx-auto bg-neutral-900 p-12 mb-24"
+      >
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {[
+            { num: "30+", label: "Projects Delivered" },
+            { num: "500+", label: "Happy Families" },
+            { num: "2M+", label: "Sq.Ft Built" },
+            { num: "20+", label: "Years Experience" },
+          ].map((stat, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="text-white"
+            >
+              <div className="text-4xl font-bold text-amber-400 mb-2">
+                {stat.num}
+              </div>
+              <div className="text-sm text-white/70 font-light uppercase tracking-wider">
+                {stat.label}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* CTA Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="max-w-6xl mx-auto bg-gradient-to-r from-amber-500 to-orange-500 p-16 text-center relative overflow-hidden"
+      >
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(0,0,0,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.5) 1px, transparent 1px)",
+            backgroundSize: "50px 50px",
+          }}
+        />
+
+        <div className="relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Find Your Perfect Property
+          </h2>
+          <p className="text-white/90 text-lg mb-10 max-w-2xl mx-auto font-light">
+            Book a personalized consultation with our real estate experts and
+            explore the best options tailored to your lifestyle and budget.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.button
+              whileHover={{ y: -3, boxShadow: "0 20px 40px rgba(0,0,0,0.3)" }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-neutral-900 hover:bg-black text-white px-10 py-4 font-bold text-lg transition-all duration-300"
+            >
+              Schedule a Visit
+            </motion.button>
+            <motion.button
+              whileHover={{ y: -3 }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-white hover:bg-neutral-100 text-neutral-900 px-10 py-4 font-bold text-lg border-2 border-white transition-all duration-300"
+            >
+              Download Brochure
+            </motion.button>
+          </div>
+        </div>
+      </motion.div>
+    </section>
   );
 };
 

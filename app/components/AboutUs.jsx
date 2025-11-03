@@ -1,132 +1,18 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-// Animation variants
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut",
-    },
-  },
-};
-
-const slideInLeft = {
-  hidden: { opacity: 0, x: -100 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut",
-    },
-  },
-};
-
-const slideInRight = {
-  hidden: { opacity: 0, x: 100 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut",
-    },
-  },
-};
-
-const scaleUp = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 60 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: "easeOut",
-    },
-  },
-};
-
-// Reusable Animated Component
-const AnimatedSection = ({ children, className = "" }) => {
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      variants={containerVariants}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-};
-
 const AboutUs = () => {
-  const stats = [
-    { number: "250+", label: "Projects Completed", icon: "🏗️" },
-    { number: "15+", label: "Years Experience", icon: "⏱️" },
-    { number: "50+", label: "Expert Team", icon: "👷" },
-    { number: "98%", label: "Client Satisfaction", icon: "⭐" },
-  ];
+  const { scrollYProgress } = useScroll();
+  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.8]);
 
-  const teamMembers = [
-    {
-      name: "John Smith",
-      position: "CEO & Founder",
-      image: "👨‍💼",
-      experience: "20+ years",
-    },
-    {
-      name: "Sarah Johnson",
-      position: "Head Architect",
-      image: "👩‍💼",
-      experience: "15+ years",
-    },
-    {
-      name: "Mike Chen",
-      position: "Project Director",
-      image: "👨‍🔧",
-      experience: "12+ years",
-    },
-    {
-      name: "Emily Davis",
-      position: "Design Manager",
-      image: "👩‍🎨",
-      experience: "10+ years",
-    },
+  const stats = [
+    { number: "30+", label: "Projects Completed", icon: "🏗️" },
+    { number: "20+", label: "Years of Excellence", icon: "⏱️" },
+    { number: "500+", label: "Units Sold", icon: "🏠" },
+    { number: "98%", label: "Client Satisfaction", icon: "⭐" },
   ];
 
   const values = [
@@ -152,151 +38,369 @@ const AboutUs = () => {
     },
   ];
 
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-blue-50">
-      {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-gray-900"></div>
-        <div className="absolute inset-0 opacity-10">
-          <motion.div
-            className="absolute top-0 left-0 w-72 h-72 bg-yellow-500 rounded-full mix-blend-multiply filter blur-xl opacity-70"
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.7, 0.9, 0.7],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-          <motion.div
-            className="absolute bottom-0 right-0 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-70"
-            animate={{
-              scale: [1.2, 1, 1.2],
-              opacity: [0.9, 0.7, 0.9],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 2,
-            }}
-          />
-        </div>
+  const teamMembers = [
+    {
+      name: "Pending (name to be confirmed)",
+      position: "Pending (position or title to be added)",
+      experience: "Pending (experience details to be added)",
+    },
+    {
+      name: "Pending (name to be confirmed)",
+      position: "Pending (position or title to be added)",
+      experience: "Pending (experience details to be added)",
+    },
+    {
+      name: "Pending (name to be confirmed)",
+      position: "Pending (position or title to be added)",
+      experience: "Pending (experience details to be added)",
+    },
+    {
+      name: "Pending (name to be confirmed)",
+      position: "Pending (position or title to be added)",
+      experience: "Pending (experience details to be added)",
+    },
+  ];
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h1
-            className="text-5xl md:text-7xl font-bold text-white mb-6"
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            Building{" "}
-            <motion.span
-              className="text-yellow-400"
+  const AnimatedCounter = ({ end, duration = 2 }) => {
+    const [count, setCount] = React.useState(0);
+    const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.5 });
+
+    React.useEffect(() => {
+      if (!inView) return;
+
+      const endValue = parseInt(end);
+      const steps = 60;
+      const increment = endValue / steps;
+      let current = 0;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= endValue) {
+          setCount(endValue);
+          clearInterval(timer);
+        } else {
+          setCount(Math.floor(current));
+        }
+      }, (duration * 1000) / steps);
+
+      return () => clearInterval(timer);
+    }, [inView, end, duration]);
+
+    return (
+      <span ref={ref}>
+        {count}
+        {end.includes("+") ? "+" : end.includes("%") ? "%" : ""}
+      </span>
+    );
+  };
+
+  return (
+    <div className="bg-black text-white overflow-hidden">
+      {/* Hero Section with Parallax */}
+      <motion.section
+        className="relative h-screen flex items-center justify-center overflow-hidden"
+        style={{ opacity, scale }}
+      >
+        {/* Animated Background Grid */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 via-black to-orange-600/20"></div>
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute bg-amber-500/10"
+              style={{
+                width: Math.random() * 300 + 100,
+                height: Math.random() * 300 + 100,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%",
+              }}
               animate={{
-                scale: [1, 1.05, 1],
-                rotate: [0, 1, -1, 0],
+                x: [0, Math.random() * 100 - 50],
+                y: [0, Math.random() * 100 - 50],
+                rotate: [0, Math.random() * 360],
+                scale: [1, Math.random() + 0.5, 1],
               }}
               transition={{
-                duration: 2,
+                duration: Math.random() * 10 + 10,
                 repeat: Infinity,
-                repeatDelay: 3,
+                repeatType: "reverse",
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="relative z-10 text-center px-4 max-w-6xl">
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <motion.h1
+              className="text-7xl md:text-9xl font-black mb-6 leading-none"
+              style={{
+                background:
+                  "linear-gradient(135deg, #fff 0%, #fbbf24 50%, #f59e0b 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
               }}
             >
-              Legacies
-            </motion.span>
-          </motion.h1>
+              BUILDING
+              <br />
+              <motion.span
+                animate={{
+                  textShadow: [
+                    "0 0 20px #fbbf24",
+                    "0 0 40px #fbbf24",
+                    "0 0 20px #fbbf24",
+                  ],
+                }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                LEGACIES
+              </motion.span>
+            </motion.h1>
+          </motion.div>
+
           <motion.p
-            className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
+            className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto font-light"
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            transition={{ duration: 1, delay: 0.3 }}
           >
-            For over 15 years, AAsma Constructions has been transforming
-            skylines and creating landmarks that stand the test of time.
+            For nearly two decades, AAsma Constructions has been shaping
+            skylines, delivering excellence, and creating spaces that inspire.
           </motion.p>
+
+          <motion.div
+            className="flex gap-4 text-2xl md:text-4xl font-bold"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.6 }}
+          >
+            <motion.div
+              className="flex items-center gap-2"
+              whileHover={{ scale: 1.1 }}
+            >
+              <span className="text-amber-500">30+</span>
+              <span className="text-sm text-gray-400">PROJECTS</span>
+            </motion.div>
+            <span className="text-gray-600">|</span>
+            <motion.div
+              className="flex items-center gap-2"
+              whileHover={{ scale: 1.1 }}
+            >
+              <span className="text-amber-500">500+</span>
+              <span className="text-sm text-gray-400">UNITS</span>
+            </motion.div>
+            <span className="text-gray-600">|</span>
+            <motion.div
+              className="flex items-center gap-2"
+              whileHover={{ scale: 1.1 }}
+            >
+              <span className="text-amber-500">20+</span>
+              <span className="text-sm text-gray-400">YEARS</span>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        <motion.div
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          animate={{ y: [0, 20, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <div className="w-8 h-12 border-2 border-amber-500 rounded-full flex justify-center pt-2">
+            <motion.div
+              className="w-2 h-2 bg-amber-500 rounded-full"
+              animate={{ y: [0, 20, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            />
+          </div>
+        </motion.div>
+      </motion.section>
+
+      {/* Stats Section - Bold Cards */}
+      <section className="py-32 px-4 bg-gradient-to-b from-black to-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <motion.h2
+            className="text-5xl md:text-7xl font-black text-center mb-20"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            BY THE <span className="text-amber-500">NUMBERS</span>
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                className="relative group"
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -20 }}
+              >
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-600 rounded-3xl"
+                  animate={{
+                    rotate: [0, 5, 0],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    delay: index * 0.2,
+                  }}
+                />
+                <div className="relative bg-black border-2 border-amber-500 rounded-3xl p-8 h-full">
+                  <motion.div
+                    className="text-6xl mb-4"
+                    animate={{
+                      scale: [1, 1.2, 1],
+                      rotate: [0, 10, -10, 0],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      delay: index * 0.3,
+                    }}
+                  >
+                    {stat.icon}
+                  </motion.div>
+                  <div className="text-6xl font-black text-amber-500 mb-2">
+                    <AnimatedCounter end={stat.number} />
+                  </div>
+                  <div className="text-gray-400 font-semibold uppercase tracking-wider">
+                    {stat.label}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Story Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      {/* Story Section - Split with Image */}
+      <section className="py-32 px-4 bg-gray-900 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <motion.div
+            className="absolute top-0 right-0 w-96 h-96 bg-amber-500 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.5, 1],
+              x: [0, 100, 0],
+              y: [0, 50, 0],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+            }}
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={slideInLeft}
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                Our Story
-              </h2>
-              <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
-                <motion.p variants={fadeInUp}>
-                  Founded in 2008, AAsma Constructions began as a small family
-                  business with a big vision. What started with a single
-                  residential project has grown into one of the most trusted
-                  names in the construction industry.
+              <motion.h2
+                className="text-6xl md:text-7xl font-black mb-8"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+              >
+                OUR
+                <br />
+                <span className="text-amber-500">STORY</span>
+              </motion.h2>
+
+              <div className="space-y-6 text-lg text-gray-300 font-light leading-relaxed">
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                >
+                  Founded in 2005, AAsma Constructions began as a small family
+                  business with a bold vision — to build quality homes that last
+                  for generations. From our first residential project to
+                  becoming one of the most trusted names in the construction
+                  industry, our journey has been defined by passion and
+                  integrity.
                 </motion.p>
-                <motion.p variants={fadeInUp}>
-                  Our journey is marked by relentless pursuit of excellence,
-                  innovation in construction techniques, and an unwavering
-                  commitment to our clients' dreams. Every brick we lay carries
-                  our promise of quality and durability.
+
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                >
+                  Over the years, we have completed more than 30 projects and
+                  proudly handed over 500+ units to happy homeowners. Each
+                  milestone reflects our unwavering commitment to excellence,
+                  innovation, and customer satisfaction.
                 </motion.p>
-                <motion.p variants={fadeInUp}>
-                  Today, we stand proud with over 250 completed projects, a team
-                  of 50+ dedicated professionals, and a portfolio that spans
-                  residential, commercial, and infrastructure development.
+
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6 }}
+                >
+                  Today, AAsma Constructions continues to grow, focusing on
+                  sustainable development, modern design, and enduring quality —
+                  building not just structures, but lasting relationships and
+                  trusted communities.
                 </motion.p>
               </div>
             </motion.div>
 
             <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={slideInRight}
               className="relative"
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
             >
               <motion.div
-                className="bg-yellow-500 rounded-2xl p-8"
-                whileHover={{ rotate: 0 }}
+                className="relative"
+                whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.5 }}
-                style={{ rotate: 3 }}
               >
-                <div className="bg-white rounded-xl p-6 shadow-2xl">
+                <div className="absolute -inset-4 bg-gradient-to-r from-amber-500 to-orange-600 rounded-3xl blur-2xl opacity-50" />
+                <div className="relative bg-gradient-to-br from-gray-800 to-black rounded-3xl p-8 border-2 border-amber-500">
                   <div className="grid grid-cols-2 gap-4">
-                    <motion.div
-                      className="bg-gray-100 rounded-lg h-48 flex items-center justify-center"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <span className="text-6xl">🏢</span>
-                    </motion.div>
-                    <motion.div
-                      className="bg-gray-100 rounded-lg h-48 flex items-center justify-center"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <span className="text-6xl">🏠</span>
-                    </motion.div>
-                    <motion.div
-                      className="bg-gray-100 rounded-lg h-32 flex items-center justify-center"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <span className="text-4xl">🌉</span>
-                    </motion.div>
-                    <motion.div
-                      className="bg-gray-100 rounded-lg h-32 flex items-center justify-center"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <span className="text-4xl">🛣️</span>
-                    </motion.div>
+                    {["🏢", "🏠", "🌉", "🛣️"].map((emoji, i) => (
+                      <motion.div
+                        key={i}
+                        className="bg-gradient-to-br from-amber-500/20 to-orange-600/20 rounded-2xl aspect-square flex items-center justify-center border border-amber-500/50"
+                        whileHover={{
+                          scale: 1.1,
+                          rotate: 5,
+                          borderColor: "#fbbf24",
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <motion.span
+                          className="text-6xl"
+                          animate={{
+                            rotate: [0, 10, -10, 0],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            delay: i * 0.2,
+                          }}
+                        >
+                          {emoji}
+                        </motion.span>
+                      </motion.div>
+                    ))}
                   </div>
                 </div>
               </motion.div>
@@ -305,215 +409,192 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <AnimatedSection className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              By The Numbers
-            </h2>
-            <p className="text-xl text-gray-600">
-              Our journey in milestones and achievements
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                variants={scaleUp}
-                whileHover={{
-                  scale: 1.05,
-                  y: -10,
-                  transition: { duration: 0.3 },
-                }}
-                className="text-center p-6 bg-gradient-to-br from-blue-50 to-yellow-50 rounded-2xl shadow-lg border border-gray-100"
-              >
-                <motion.div
-                  className="text-4xl mb-4"
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  {stat.icon}
-                </motion.div>
-                <motion.div
-                  className="text-3xl font-bold text-gray-900 mb-2"
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 100,
-                    delay: index * 0.1,
-                  }}
-                >
-                  {stat.number}
-                </motion.div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </AnimatedSection>
-
-      {/* Values Section */}
-      <section className="py-20 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
+      {/* Values Section - Hexagon Grid */}
+      <section className="py-32 px-4 bg-black relative">
+        <div className="max-w-7xl mx-auto">
+          <motion.h2
+            className="text-5xl md:text-7xl font-black text-center mb-20"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-4">Our Values</h2>
-            <p className="text-xl text-gray-300">
-              The principles that guide everything we do
-            </p>
-          </motion.div>
+            CORE <span className="text-amber-500">VALUES</span>
+          </motion.h2>
 
-          <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
               <motion.div
                 key={index}
-                variants={itemVariants}
-                whileHover={{
-                  scale: 1.05,
-                  y: -10,
-                  backgroundColor: "#eab308",
-                  color: "#1f2937",
+                className="group relative"
+                initial={{ opacity: 0, scale: 0.5, rotate: -180 }}
+                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.8,
+                  delay: index * 0.1,
+                  type: "spring",
+                  stiffness: 100,
                 }}
-                transition={{ duration: 0.3 }}
-                className="text-center p-8 bg-gray-800 rounded-2xl cursor-pointer"
-              >
-                <motion.div
-                  className="text-5xl mb-6"
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {value.icon}
-                </motion.div>
-                <h3 className="text-xl font-bold mb-4">{value.title}</h3>
-                <p className="text-gray-300">{value.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <AnimatedSection className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Meet Our Leaders
-            </h2>
-            <p className="text-xl text-gray-600">
-              The experienced professionals behind our success
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
                 whileHover={{
-                  y: -10,
+                  scale: 1.1,
+                  rotate: 5,
                   transition: { duration: 0.3 },
                 }}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100"
               >
-                <motion.div
-                  className="bg-gradient-to-r from-blue-500 to-blue-700 h-32 flex items-center justify-center"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <motion.span
-                    className="text-6xl"
-                    whileHover={{ scale: 1.2 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {member.image}
-                  </motion.span>
-                </motion.div>
-                <div className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    {member.name}
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-600 rounded-3xl blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-500" />
+
+                <div className="relative bg-gradient-to-br from-gray-900 to-black border-2 border-gray-800 group-hover:border-amber-500 rounded-3xl p-8 h-full transition-all duration-500">
+                  <motion.div className="text-6xl mb-6">
+                    {value.icon}
+                  </motion.div>
+                  <h3 className="text-2xl font-black mb-4 text-amber-500 group-hover:text-white transition-colors">
+                    {value.title}
                   </h3>
-                  <p className="text-yellow-600 font-semibold mb-2">
-                    {member.position}
-                  </p>
-                  <p className="text-gray-500 text-sm">
-                    {member.experience} Experience
+                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
+                    {value.description}
                   </p>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
-      </AnimatedSection>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-32 px-4 bg-gradient-to-b from-gray-900 to-black">
+        <div className="max-w-7xl mx-auto">
+          <motion.h2
+            className="text-5xl md:text-7xl font-black text-center mb-20"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            MEET OUR <span className="text-amber-500">LEADERS</span>
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {teamMembers.map((member, index) => (
+              <motion.div
+                key={index}
+                className="group relative"
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -20 }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-600 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
+
+                <div className="relative bg-gradient-to-br from-gray-800 to-black border-2 border-gray-700 group-hover:border-amber-300 rounded-3xl overflow-hidden transition-all duration-500">
+                  <div className="h-48 relative overflow-hidden">
+                    <motion.div
+                      className="absolute inset-0 bg-black/50"
+                      whileHover={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center text-8xl">
+                      👤
+                    </div>
+                  </div>
+
+                  <div className="p-6 text-center">
+                    <h3 className="text-xl font-black text-white mb-2">
+                      {member.name}
+                    </h3>
+                    <p className="text-amber-500 font-bold mb-2 text-sm uppercase tracking-wider">
+                      {member.position}
+                    </p>
+                    <p className="text-gray-400 text-sm">{member.experience}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
-      <motion.section
-        className="py-20 bg-gradient-to-r from-yellow-400 to-yellow-500"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+      <section className="py-32 px-4 bg-gradient-to-br from-amber-500 via-blue-500 to-amber-500 relative overflow-hidden">
+        <motion.div
+          className="absolute inset-0"
+          animate={{
+            backgroundPosition: ["0% 0%", "100% 100%"],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px)",
+            backgroundSize: "50px 50px",
+          }}
+        />
+
+        <div className="max-w-5xl mx-auto text-center relative z-10">
           <motion.h2
-            className="text-4xl font-bold text-gray-900 mb-6"
-            initial={{ scale: 0.9 }}
-            whileInView={{ scale: 1 }}
-            transition={{ duration: 0.5 }}
+            className="text-5xl md:text-8xl font-black text-black mb-8"
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
-            Ready to Build Together?
+            READY TO BUILD
+            <br />
+            TOGETHER?
           </motion.h2>
+
           <motion.p
-            className="text-xl text-gray-800 mb-8 max-w-2xl mx-auto"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-xl md:text-2xl text-black/80 mb-12 font-semibold"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
           >
             Let's discuss how we can bring your vision to life with our
             expertise and dedication.
           </motion.p>
+
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-6 justify-center"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
           >
             <motion.button
-              className="bg-gray-900 hover:bg-gray-800 text-white font-bold py-4 px-8 rounded-lg text-lg"
-              whileHover={{
-                scale: 1.05,
-                transition: { duration: 0.2 },
-              }}
+              className="bg-black text-white font-black py-6 px-12 rounded-full text-xl uppercase tracking-wider relative overflow-hidden group"
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Start Your Project
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-100"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: 0 }}
+                transition={{ duration: 0.3 }}
+              />
+              <span className="relative z-10">Start Your Project</span>
             </motion.button>
+
             <motion.button
-              className="bg-white hover:bg-gray-100 text-gray-900 font-bold py-4 px-8 rounded-lg text-lg border border-gray-300"
-              whileHover={{
-                scale: 1.05,
-                transition: { duration: 0.2 },
-              }}
+              className="bg-white text-black font-black py-6 px-12 rounded-full text-xl uppercase tracking-wider border-4 border-black relative overflow-hidden group"
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              View Our Portfolio
+              <motion.div
+                className="absolute inset-0 bg-black"
+                initial={{ y: "100%" }}
+                whileHover={{ y: 0 }}
+                transition={{ duration: 0.3 }}
+              />
+              <span className="relative z-10 group-hover:text-white transition-colors">
+                View Portfolio
+              </span>
             </motion.button>
           </motion.div>
         </div>
-      </motion.section>
+      </section>
     </div>
   );
 };
