@@ -221,7 +221,7 @@ const AboutUs = () => {
       </motion.section>
 
       {/* Stats Section - Bold Cards */}
-      <section className="py-32 px-4 bg-gradient-to-b from-black to-gray-900">
+      {/* <section className="py-32 px-4 bg-gradient-to-b from-black to-gray-900">
         <div className="max-w-7xl mx-auto">
           <motion.h2
             className="text-5xl md:text-7xl font-black text-center mb-20"
@@ -281,7 +281,7 @@ const AboutUs = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Story Section - Split with Image */}
       <section className="py-32 px-4 bg-gray-900 relative overflow-hidden">
