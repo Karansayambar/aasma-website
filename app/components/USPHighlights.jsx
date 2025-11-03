@@ -1,6 +1,64 @@
 "use client";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ShieldCheck, Ruler, Building2, Sparkles } from "lucide-react";
+
+export default function RealEstateCarousel() {
+  const images = [
+    "../01.jpg",
+    "../02.png",
+    "../03.jpeg",
+    "../04.jpeg",
+    "../05.jpeg",
+    // "https://source.unsplash.com/1600x900/?house-exterior",
+    // "https://source.unsplash.com/1600x900/?open-plan",
+    // "https://source.unsplash.com/1600x900/?balcony",
+  ];
+
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    let scrollAmount = 0;
+    let scrollSpeed = 1; // pixels per frame
+
+    function smoothScroll() {
+      if (scrollContainer) {
+        scrollAmount += scrollSpeed;
+        if (scrollAmount >= scrollContainer.scrollWidth / 2) {
+          scrollAmount = 0;
+        }
+        scrollContainer.scrollLeft = scrollAmount;
+      }
+      requestAnimationFrame(smoothScroll);
+    }
+
+    smoothScroll();
+  }, []);
+
+  return (
+    <section className="relative py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+      {/* <h2 className="text-center text-4xl font-bold text-gray-900 mb-10">
+        Our Premium Properties
+      </h2> */}
+      <div
+        ref={scrollRef}
+        className="flex overflow-x-hidden whitespace-nowrap gap-8"
+      >
+        {[...images, ...images].map((src, index) => (
+          <img
+            key={index}
+            src={src}
+            alt={`Property ${index + 1}`}
+            className="w-[400px] h-[300px] object-cover rounded-2xl shadow-md flex-shrink-0"
+          />
+        ))}
+      </div>
+
+      <USPHighlights />
+    </section>
+  );
+}
 
 const USPHighlights = () => {
   const fadeUp = {
@@ -35,7 +93,6 @@ const USPHighlights = () => {
 
   return (
     <section className="relative py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
-      {/* Animated background shapes */}
       <motion.div
         className="absolute -top-20 -left-20 w-96 h-96 bg-blue-200 rounded-full blur-3xl opacity-30"
         animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
@@ -47,7 +104,6 @@ const USPHighlights = () => {
         transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
       />
 
-      {/* Section Header */}
       <motion.div
         initial="hidden"
         animate="visible"
@@ -64,7 +120,6 @@ const USPHighlights = () => {
         </p>
       </motion.div>
 
-      {/* USP Cards */}
       <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-6">
         {uspData.map((usp, i) => (
           <motion.div
@@ -87,7 +142,6 @@ const USPHighlights = () => {
         ))}
       </div>
 
-      {/* Bottom Highlight Line */}
       <motion.div
         className="mt-20 flex justify-center items-center gap-3 text-blue-700"
         initial={{ opacity: 0, y: 20 }}
@@ -102,5 +156,3 @@ const USPHighlights = () => {
     </section>
   );
 };
-
-export default USPHighlights;
