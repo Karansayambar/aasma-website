@@ -49,7 +49,7 @@ const Header = () => {
                 scrolled ? "text-gray-900" : "text-white"
               }`}
             >
-              AASMA INFRAVENTURE'S PVT. LTD.
+              Aasma Infraventures Pvt.Ltd
             </p>
           </div>
 
