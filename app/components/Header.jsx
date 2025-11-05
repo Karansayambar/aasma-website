@@ -45,7 +45,7 @@ const Header = () => {
           {/* Logo / Title */}
           <div className="text-center lg:text-left">
             <p
-              className={`text-xl sm:text-2xl font-bold whitespace-nowrap transition-colors duration-300 ${
+              className={`text-xl sm:text-xl md:2xl font-bold whitespace-nowrap transition-colors duration-300 ${
                 scrolled ? "text-gray-900" : "text-white"
               }`}
             >
