@@ -94,6 +94,13 @@ const AboutUs = () => {
     );
   };
 
+  const handleScrollTo = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="bg-black text-white overflow-hidden">
       {/* Hero Section with Parallax */}
@@ -567,6 +574,7 @@ const AboutUs = () => {
               className="bg-black text-white font-black py-6 px-12 rounded-full text-xl uppercase tracking-wider relative overflow-hidden group"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => handleScrollTo("contact")}
             >
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-100"
@@ -575,22 +583,6 @@ const AboutUs = () => {
                 transition={{ duration: 0.3 }}
               />
               <span className="relative z-10">Start Your Project</span>
-            </motion.button>
-
-            <motion.button
-              className="bg-white text-black font-black py-6 px-12 rounded-full text-xl uppercase tracking-wider border-4 border-black relative overflow-hidden group"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <motion.div
-                className="absolute inset-0 bg-black"
-                initial={{ y: "100%" }}
-                whileHover={{ y: 0 }}
-                transition={{ duration: 0.3 }}
-              />
-              <span className="relative z-10 group-hover:text-white transition-colors">
-                View Portfolio
-              </span>
             </motion.button>
           </motion.div>
         </div>

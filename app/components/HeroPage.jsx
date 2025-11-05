@@ -7,6 +7,13 @@ const HeroPage = () => {
   const y = useTransform(scrollYProgress, [0, 1], [0, 300]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+  const handleScrollTo = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="relative h-screen w-full overflow-hidden bg-neutral-900">
       {/* Video Background with Parallax */}
@@ -101,10 +108,11 @@ const HeroPage = () => {
                       y: -3,
                       boxShadow: "0 20px 40px rgba(251, 191, 36, 0.3)",
                     }}
+                    onClick={() => handleScrollTo("projects")}
                     whileTap={{ scale: 0.98 }}
                     className="group bg-gradient-to-r from-amber-500 to-orange-500 text-white px-8 py-4 font-semibold tracking-wide flex items-center justify-center gap-3 transition-all duration-300"
                   >
-                    View Our Portfolio
+                    View Our Projects
                     <motion.span
                       animate={{ x: [0, 5, 0] }}
                       transition={{ duration: 1.5, repeat: Infinity }}
@@ -114,6 +122,7 @@ const HeroPage = () => {
                   </motion.button>
 
                   <motion.button
+                    onClick={() => handleScrollTo("contact")}
                     whileHover={{ y: -3 }}
                     whileTap={{ scale: 0.98 }}
                     className="border-2 border-white/30 hover:border-white/60 text-white px-8 py-4 font-semibold tracking-wide backdrop-blur-sm transition-all duration-300"
