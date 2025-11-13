@@ -110,11 +110,11 @@ const AboutUs = () => {
       >
         {/* Animated Background Grid */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 via-black to-orange-600/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/95 via-slate-900/60 to-neutral-900/95"></div>
           {[...Array(20)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute bg-amber-500/10"
+              className="absolute bg-neutral-500/10"
               style={{
                 width: Math.random() * 300 + 100,
                 height: Math.random() * 300 + 100,
@@ -333,7 +333,7 @@ const AboutUs = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
                 >
-                  Founded in 2005, AAsma Constructions began as a small family
+                  Founded in 2005, Aasma Constructions began as a small family
                   business with a bold vision — to build quality homes that last
                   for generations. From our first residential project to
                   becoming one of the most trusted names in the construction
@@ -359,7 +359,7 @@ const AboutUs = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.6 }}
                 >
-                  Today, AAsma Constructions continues to grow, focusing on
+                  Today, Aasma Constructions continues to grow, focusing on
                   sustainable development, modern design, and enduring quality —
                   building not just structures, but lasting relationships and
                   trusted communities.
@@ -367,7 +367,7 @@ const AboutUs = () => {
               </div>
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
               className="relative"
               initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -411,7 +411,7 @@ const AboutUs = () => {
                   </div>
                 </div>
               </motion.div>
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
       </section>

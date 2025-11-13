@@ -115,6 +115,7 @@ const HeroPage = () => {
                 { number: "30+", label: "Projects Completed" },
                 { number: "98%", label: "Client Satisfaction" },
                 { number: "20+", label: "Years Experience" },
+                { number: "500", label: "Units Sold" },
               ].map((stat, i) => (
                 <motion.div
                   key={i}
