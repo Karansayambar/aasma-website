@@ -137,7 +137,7 @@ const AboutUs = () => {
           ))}
         </div>
 
-        <div className="relative z-10 text-center px-4 max-w-6xl">
+        <div className="relative z-10 text-center px-4 w-full md:max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
@@ -181,7 +181,7 @@ const AboutUs = () => {
           </motion.p>
 
           <motion.div
-            className="flex gap-4 text-2xl md:text-4xl font-bold"
+            className="flex gap-4 text-2xl md:text-4xl font-bold flex-wrap justify-center items-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.6 }}
