@@ -176,7 +176,7 @@ const AboutUs = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
           >
-            For nearly two decades, AAsma Constructions has been shaping
+            For nearly two decades, Aasma Constructions has been shaping
             skylines, delivering excellence, and creating spaces that inspire.
           </motion.p>
 
