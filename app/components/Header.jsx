@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -51,6 +52,12 @@ const Header = () => {
             >
               Aasma Infraventures
             </p>
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: 200 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="h-px bg-emerald-700"
+            />
           </div>
 
           {/* Desktop Navigation */}

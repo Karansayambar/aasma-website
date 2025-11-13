@@ -22,45 +22,46 @@ const HeroPage = () => {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-neutral-900">
-      {/* Professional Video Background */}
-      <motion.div style={{ y }} className="absolute inset-0 w-full h-full">
+      {/* ================= BACKGROUND VIDEO ================= */}
+      <motion.div
+        style={{ y }}
+        className="absolute inset-0 w-full h-full z-0 overflow-hidden"
+      >
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover brightness-75"
         >
           <source
-            src="https://cdn.pixabay.com/video/2023/02/28/160456-804004017_tiny.mp4"
+            src="https://cdn.pixabay.com/video/2022/07/04/123149-727211195_large.mp4"
             type="video/mp4"
           />
-          {/* Fallback video sources */}
           <source
-            src="https://assets.codepen.io/3364143/7b5f1d1b-7d9a-4c30-9b5b-5c5c5b5b5b5b.mp4"
+            src="https://cdn.pixabay.com/video/2022/07/04/123149-727211195_large.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.
         </video>
 
-        {/* Enhanced Video Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/95 via-slate-900/60 to-neutral-900/95"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-neutral-900/90"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-neutral-900/80 via-transparent to-neutral-900/80"></div>
+        {/* Gradient overlays - lighter for video visibility */}
+        <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/80 via-slate-900/40 to-neutral-900/80 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/70 via-transparent to-neutral-900/80 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-neutral-900/50 via-transparent to-neutral-900/50 pointer-events-none"></div>
 
-        {/* Subtle Grid Overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]"></div>
+        {/* Subtle grid overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none"></div>
       </motion.div>
 
-      {/* Main Content */}
+      {/* ================= MAIN CONTENT ================= */}
       <motion.div
         style={{ opacity }}
-        className="relative z-10 min-h-screen flex flex-col justify-center"
+        className="relative z-10 min-h-screen flex flex-col justify-center md:justify-center sm:justify-start py-20 sm:py-32"
       >
-        {/* Center Content */}
         <div className="px-6 lg:px-16">
           <div className="max-w-4xl mx-auto">
-            {/* Main Title */}
+            {/* --- Title Section --- */}
             <div className="text-left mb-16">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
@@ -74,7 +75,7 @@ const HeroPage = () => {
                   transition={{ duration: 1, delay: 0.5 }}
                   className="h-px bg-emerald-400"
                 />
-                <div className="text-emerald-400 pt-20 md:pt-0 text-sm font-light tracking-widest uppercase">
+                <div className="text-emerald-400 text-sm font-light tracking-widest uppercase">
                   Excellence Since 2005
                 </div>
               </motion.div>
@@ -104,7 +105,7 @@ const HeroPage = () => {
               </motion.p>
             </div>
 
-            {/* Stats - Minimal */}
+            {/* --- Stats --- */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -140,7 +141,7 @@ const HeroPage = () => {
               ))}
             </motion.div>
 
-            {/* CTA Buttons */}
+            {/* --- CTA Buttons --- */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -179,7 +180,7 @@ const HeroPage = () => {
               </motion.button>
             </motion.div>
 
-            {/* Services Preview */}
+            {/* --- Services Preview --- */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -233,7 +234,8 @@ const HeroPage = () => {
             </motion.div>
           </div>
         </div>
-        {/* Bottom Bar */}
+
+        {/* --- Bottom Info Bar --- */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -242,42 +244,49 @@ const HeroPage = () => {
         >
           <div className="flex flex-col sm:flex-row justify-between items-center text-white/40 text-xs font-light tracking-wide gap-2">
             <div>Premium Construction Services Worldwide</div>
-            <div>Architectural Excellence Since 1998</div>
+            <div>Architectural Excellence Since 2005</div>
             <div>Licensed & Certified Professionals</div>
           </div>
         </motion.div>
       </motion.div>
 
-      {/* Scroll Indicator */}
+      {/* --- Scroll Indicator --- */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.6 }}
-        className="absolute bottom-8 right-8 z-20"
+        className="absolute md:bottom-8 md:right-8 z-20"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
+          className="flex flex-col  items-center gap-2 opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
         >
-          <div className="text-white text-xs tracking-widest font-light uppercase -rotate-90 origin-center whitespace-nowrap mb-12">
+          <div className="text-white text-xs tracking-widest font-light uppercase md:-rotate-90 origin-center whitespace-nowrap mb-12">
             Scroll to Explore
           </div>
           <div className="w-px h-20 bg-gradient-to-t from-emerald-400 via-emerald-400/50 to-transparent" />
         </motion.div>
       </motion.div>
 
-      {/* Video Loading Fallback */}
+      {/* --- Video fallback --- */}
       <div className="absolute inset-0 bg-neutral-900 z-0 video-fallback hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 via-slate-800 to-neutral-900"></div>
       </div>
 
+      {/* --- Extra CSS --- */}
       <style jsx>{`
-        .video-fallback {
-          background: linear-gradient(45deg, #0f0f0f, #1a1a1a, #0f0f0f);
-        }
         video {
-          filter: brightness(0.8) contrast(1.1);
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+          filter: brightness(0.8) contrast(1.05);
+        }
+
+        @media (max-width: 768px) {
+          video {
+            object-position: center center;
+          }
         }
       `}</style>
     </div>

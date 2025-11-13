@@ -176,7 +176,7 @@ const AboutUs = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
           >
-            For nearly two decades, Aasma Constructions has been shaping
+            For nearly two decades, Aasma Infraventures has been shaping
             skylines, delivering excellence, and creating spaces that inspire.
           </motion.p>
 
@@ -208,6 +208,14 @@ const AboutUs = () => {
             >
               <span className="text-amber-500">20+</span>
               <span className="text-sm text-gray-400">YEARS</span>
+            </motion.div>
+            <span className="text-gray-600">|</span>
+            <motion.div
+              className="flex items-center gap-2"
+              whileHover={{ scale: 1.1 }}
+            >
+              <span className="text-amber-500">98%</span>
+              <span className="text-sm text-gray-400">Client Satisfaction</span>
             </motion.div>
           </motion.div>
         </div>
@@ -333,7 +341,7 @@ const AboutUs = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
                 >
-                  Founded in 2005, Aasma Constructions began as a small family
+                  Founded in 2005, Aasma Infraventures began as a small family
                   business with a bold vision — to build quality homes that last
                   for generations. From our first residential project to
                   becoming one of the most trusted names in the construction
@@ -359,7 +367,7 @@ const AboutUs = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.6 }}
                 >
-                  Today, Aasma Constructions continues to grow, focusing on
+                  Today, Aasma Infraventures continues to grow, focusing on
                   sustainable development, modern design, and enduring quality —
                   building not just structures, but lasting relationships and
                   trusted communities.
@@ -367,99 +375,252 @@ const AboutUs = () => {
               </div>
             </motion.div>
 
-            {/* <motion.div
+            <motion.div
               className="relative"
               initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <motion.div
                 className="relative"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.5 }}
+                whileHover={{ scale: 1.02, y: -5 }}
+                transition={{ duration: 0.4 }}
               >
-                <div className="absolute -inset-4 bg-gradient-to-r from-amber-500 to-orange-600 rounded-3xl blur-2xl opacity-50" />
-                <div className="relative bg-gradient-to-br from-gray-800 to-black rounded-3xl p-8 border-2 border-amber-500">
-                  <div className="grid grid-cols-2 gap-4">
-                    {["🏢", "🏠", "🌉", "🛣️"].map((emoji, i) => (
+                {/* Enhanced Background Glow */}
+                <div className="absolute -inset-4 bg-gradient-to-r from-amber-500/30 via-orange-600/20 to-amber-500/30 rounded-3xl blur-3xl opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
+
+                {/* Main Card */}
+                <div className="relative bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-xl rounded-2xl p-8 border border-gray-700/50 group-hover:border-amber-500/60 transition-all duration-500 shadow-2xl shadow-black/50">
+                  {/* Header */}
+                  <div className="text-center mb-8">
+                    <motion.div
+                      className="inline-flex items-center gap-3 text-amber-500 text-sm font-semibold uppercase tracking-wider mb-4"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ delay: 0.3 }}
+                    >
+                      <div className="w-1 h-1 bg-amber-500 rounded-full" />
+                      Featured Projects
+                      <div className="w-1 h-1 bg-amber-500 rounded-full" />
+                    </motion.div>
+                    <h3 className="text-2xl font-bold text-white">
+                      Our Portfolio
+                    </h3>
+                  </div>
+
+                  {/* Grid Layout */}
+                  <div className="grid grid-cols-2 gap-3">
+                    {[
+                      {
+                        image: "../aboutImg.jpeg",
+                        label: "Commercial",
+                        color: "from-blue-500/20 to-cyan-600/20",
+                      },
+                      {
+                        image: "../aboutImg2.jpeg",
+                        label: "Residential",
+                        color: "from-emerald-500/20 to-green-600/20",
+                      },
+                      {
+                        image: "../aboutImg3.jpeg",
+                        label: "Infrastructure",
+                        color: "from-purple-500/20 to-pink-600/20",
+                      },
+                      {
+                        image: "../aboutImg4.jpeg",
+                        label: "Transport",
+                        color: "from-orange-500/20 to-red-600/20",
+                      },
+                    ].map((item, i) => (
                       <motion.div
                         key={i}
-                        className="bg-gradient-to-br from-amber-500/20 to-orange-600/20 rounded-2xl aspect-square flex items-center justify-center border border-amber-500/50"
-                        whileHover={{
-                          scale: 1.1,
-                          rotate: 5,
-                          borderColor: "#fbbf24",
-                        }}
-                        transition={{ duration: 0.3 }}
+                        className="group relative"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
                       >
-                        <motion.span
-                          className="text-6xl"
-                          animate={{
-                            rotate: [0, 10, -10, 0],
-                          }}
-                          transition={{
-                            duration: 2,
-                            repeat: Infinity,
-                            delay: i * 0.2,
+                        {/* Card Hover Effect */}
+                        <div
+                          className={`absolute inset-0 bg-gradient-to-br ${item.color} rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl -z-10`}
+                        />
+
+                        <motion.div
+                          className="relative bg-gray-900 rounded-xl overflow-hidden border border-gray-700/50 group-hover:border-amber-500/50 flex flex-col items-center justify-center aspect-square transition-all duration-500 group-hover:shadow-2xl"
+                          whileHover={{
+                            scale: 1.05,
+                            y: -4,
+                            transition: { duration: 0.3 },
                           }}
                         >
-                          {emoji}
-                        </motion.span>
+                          {/* Image Container */}
+                          <div className="relative w-full h-full overflow-hidden">
+                            <motion.img
+                              src={item.image}
+                              alt={item.label}
+                              className="w-full h-full  transition-transform duration-700 group-hover:scale-110"
+                              whileHover={{ scale: 1.1 }}
+                              transition={{ duration: 0.6 }}
+                            />
+
+                            {/* Gradient Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+
+                            {/* Hover Overlay */}
+                            <div className="absolute inset-0 bg-amber-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                          </div>
+
+                          {/* Content Overlay */}
+                          <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
+                            <motion.div
+                              className="text-center"
+                              initial={{ y: 10 }}
+                              whileHover={{ y: 0 }}
+                              transition={{ duration: 0.3 }}
+                            >
+                              {/* Label with Icon */}
+                              <motion.div
+                                className="flex items-center justify-center gap-2 mb-1"
+                                initial={{ opacity: 0.8 }}
+                                whileHover={{ opacity: 1 }}
+                              >
+                                <div className="w-1.5 h-1.5 bg-amber-500 rounded-full" />
+                                {/* <span className="text-sm font-semibold text-white tracking-wide">
+                                  {item.label}
+                                </span> */}
+                                <div className="w-1.5 h-1.5 bg-amber-500 rounded-full" />
+                              </motion.div>
+
+                              {/* View Project Text */}
+                              <motion.div
+                                className="text-xs text-amber-500 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-1"
+                                initial={{ y: 5 }}
+                                whileHover={{ y: 0 }}
+                              >
+                                View Projects
+                                <svg
+                                  className="w-3 h-3 transform group-hover:translate-x-1 transition-transform duration-300"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M9 5l7 7-7 7"
+                                  />
+                                </svg>
+                              </motion.div>
+                            </motion.div>
+                          </div>
+
+                          {/* Corner Accents */}
+                          <div className="absolute top-3 left-3 w-2 h-2 border-t-2 border-l-2 border-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                          <div className="absolute top-3 right-3 w-2 h-2 border-t-2 border-r-2 border-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                          <div className="absolute bottom-3 left-3 w-2 h-2 border-b-2 border-l-2 border-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                          <div className="absolute bottom-3 right-3 w-2 h-2 border-b-2 border-r-2 border-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        </motion.div>
                       </motion.div>
                     ))}
                   </div>
                 </div>
+
+                {/* Corner Accents */}
+                <div className="absolute top-4 left-4 w-2 h-2 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-4 right-4 w-2 h-2 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-4 left-4 w-2 h-2 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-4 right-4 w-2 h-2 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </motion.div>
-            </motion.div> */}
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Values Section - Hexagon Grid */}
-      <section className="py-32 px-4 bg-black relative">
-        <div className="max-w-7xl mx-auto">
-          <motion.h2
-            className="text-5xl md:text-7xl font-black text-center mb-20"
-            initial={{ opacity: 0, y: 50 }}
+      <section className="py-24 px-4 bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
+        <div className="absolute top-0 left-0 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-orange-600/5 rounded-full blur-3xl" />
+
+        <div className="max-w-7xl mx-auto relative">
+          {/* Section Header */}
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            CORE <span className="text-amber-500">VALUES</span>
-          </motion.h2>
+            <div className="inline-flex items-center gap-2 text-amber-500 text-sm font-semibold uppercase tracking-wider mb-4">
+              <div className="w-2 h-2 bg-amber-500 rounded-full" />
+              Our Philosophy
+              <div className="w-2 h-2 bg-amber-500 rounded-full" />
+            </div>
+            <motion.h2
+              className="text-4xl md:text-6xl font-bold text-white mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              Core <span className="text-amber-500">Values</span>
+            </motion.h2>
+            <motion.p
+              className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              The fundamental principles that guide our decisions and shape our
+              culture
+            </motion.p>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Values Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
               <motion.div
                 key={index}
                 className="group relative"
-                initial={{ opacity: 0, scale: 0.5, rotate: -180 }}
-                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
                 transition={{
-                  duration: 0.8,
+                  duration: 0.6,
                   delay: index * 0.1,
-                  type: "spring",
-                  stiffness: 100,
+                  ease: "easeOut",
                 }}
                 whileHover={{
-                  scale: 1.1,
-                  rotate: 5,
+                  y: -8,
                   transition: { duration: 0.3 },
                 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-600 rounded-3xl blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-500" />
+                {/* Hover Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-orange-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
 
-                <div className="relative bg-gradient-to-br from-gray-900 to-black border-2 border-gray-800 group-hover:border-amber-500 rounded-3xl p-8 h-full transition-all duration-500">
-                  <motion.div className="text-6xl mb-6">
-                    {value.icon}
+                {/* Card */}
+                <div className="relative bg-gradient-to-br from-gray-800/50 to-gray-900/80 backdrop-blur-sm border border-gray-700/50 group-hover:border-amber-500/30 rounded-2xl p-8 h-full transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-amber-500/10">
+                  {/* Icon Container */}
+                  <motion.div
+                    className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300"
+                    whileHover={{ rotate: 5 }}
+                  >
+                    <div className="text-2xl text-white">{value.icon}</div>
                   </motion.div>
-                  <h3 className="text-2xl font-black mb-4 text-amber-500 group-hover:text-white transition-colors">
+
+                  {/* Content */}
+                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-amber-500 transition-colors duration-300">
                     {value.title}
                   </h3>
-                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
+                  <p className="text-gray-400 group-hover:text-gray-300 leading-relaxed transition-colors duration-300">
                     {value.description}
                   </p>
+
+                  {/* Bottom Accent */}
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-amber-500 to-orange-600 group-hover:w-3/4 transition-all duration-500 rounded-t-full" />
                 </div>
               </motion.div>
             ))}
