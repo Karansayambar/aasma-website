@@ -31,7 +31,7 @@ const History = () => {
   return (
     <section className="relative bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white py-24 px-6 overflow-hidden">
       {/* Background Accent */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(37,99,235,0.25),transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(235, 18, 65, 0.25),transparent_50%)]"></div>
 
       {/* Title */}
       <motion.div
@@ -100,7 +100,7 @@ const History = () => {
 
       {/* Accent Divider */}
       <div className="mt-20 flex justify-center">
-        <div className="w-40 h-1 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
+        <div className="w-40 h-1 rounded-full bg-gradient-to-r from-orange-500 to-red-500"></div>
       </div>
     </section>
   );

@@ -110,7 +110,7 @@ const AboutUs = () => {
       >
         {/* Animated Background Grid */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/95 via-slate-900/60 to-neutral-900/95"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/95 via-white-900/60 to-neutral-900/95"></div>
           {[...Array(20)].map((_, i) => (
             <motion.div
               key={i}
@@ -306,7 +306,7 @@ const AboutUs = () => {
       </section> */}
 
       {/* Story Section - Split with Image */}
-      <section className="py-32 px-4 bg-gray-900 relative overflow-hidden">
+      <section className="py-32 px-4  relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <motion.div
             className="absolute top-0 right-0 w-96 h-96 bg-red-500 rounded-full blur-3xl"
@@ -545,7 +545,7 @@ const AboutUs = () => {
       </section>
 
       {/* Values Section - Hexagon Grid */}
-      <section className="py-24 px-4 bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
+      <section className="py-24 px-4  relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
         <div className="absolute top-0 left-0 w-72 h-72 bg-red-500/5 rounded-full blur-3xl" />
@@ -636,7 +636,7 @@ const AboutUs = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-32 px-4 bg-gradient-to-b from-gray-900 to-black">
+      <section className="py-32 px-4 ">
         <div className="max-w-7xl mx-auto">
           <motion.h2
             className="text-5xl md:text-7xl font-black text-center mb-20"
