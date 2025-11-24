@@ -682,60 +682,48 @@ const AboutUs = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-32 px-4 bg-gradient-to-br from-[#FF6A00] via-[#FF8A30] to-[#ff6a00b9] overflow-hidden">
-        {/* 🔶 Soft Professional Orange Glow Blobs */}
+      <section className="relative py-32 px-4 text-white overflow-hidden">
+        {/* 🔶 STRONG VISIBLE ORANGE BLOBS */}
         <motion.div
-          className="absolute -top-40 -left-40 w-[450px] h-[450px] bg-amber-400/25 rounded-full blur-3xl"
-          animate={{ x: [0, 35, 0], y: [0, -35, 0] }}
+          className="absolute top-[-20%] left-[-20%] w-[420px] h-[420px] bg-blue-500/30 rounded-full blur-[100px]"
+          animate={{ x: [0, 20, 0], y: [0, -20, 0] }}
           transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
         />
 
         <motion.div
-          className="absolute bottom-0 right-0 w-[450px] h-[450px] bg-amber-300/20 rounded-full blur-3xl"
-          animate={{ x: [0, -25, 0], y: [0, 25, 0] }}
-          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-[-20%] right-[-20%] w-[420px] h-[420px] bg-blue-400/25 rounded-full blur-[100px]"
+          animate={{ x: [0, -20, 0], y: [0, 20, 0] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
         />
 
-        {/* 🔶 Elegant Very-Soft Mesh Grid */}
+        {/* 🔶 CLEARER GRID (More visible than before) */}
         <motion.div
-          className="absolute inset-0 opacity-[0.12]"
+          className="absolute inset-0 opacity-[0.20]"
           style={{
             backgroundImage:
-              "radial-gradient(circle, rgba(0,0,0,0.15) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
+              "radial-gradient(circle, rgba(0,0,0,0.25) 1px, transparent 1px)",
+            backgroundSize: "50px 50px",
           }}
-          animate={{
-            backgroundPosition: ["0% 0%", "100% 100%"],
-          }}
-          transition={{
-            duration: 22,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
+          animate={{ backgroundPosition: ["0% 0%", "100% 100%"] }}
+          transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
         />
 
-        {/* 🔶 Warm Aurora Highlight */}
+        {/* 🔶 SUBTLE HIGHLIGHT (very soft, not washed-out) */}
         <motion.div
-          className="absolute inset-0 mix-blend-overlay opacity-30"
+          className="absolute inset-0 mix-blend-overlay opacity-20"
           style={{
             background:
-              "linear-gradient(120deg, rgba(255,255,255,0.15), rgba(255,180,80,0.15), rgba(255,200,120,0.1))",
-            backgroundSize: "300% 300%",
+              "linear-gradient(120deg, rgba(255,255,255,0.12), rgba(255,160,60,0.15), rgba(255,130,40,0.12))",
+            backgroundSize: "260% 260%",
           }}
-          animate={{
-            backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-          }}
-          transition={{
-            duration: 14,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
         />
 
         {/* ===================== CONTENT ===================== */}
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <motion.h2
-            className="text-5xl md:text-8xl font-black text-black mb-8"
+            className="text-5xl md:text-8xl font-black text-white mb-8"
             initial={{ opacity: 0, scale: 0.5 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -747,30 +735,30 @@ const AboutUs = () => {
           </motion.h2>
 
           <motion.p
-            className="text-xl md:text-2xl text-black/80 mb-12 font-semibold"
-            initial={{ opacity: 0, y: 50 }}
+            className="text-xl md:text-2xl text-white/80 mb-12 font-semibold max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            Let's discuss how we can bring your vision to life with our
-            expertise and dedication.
+            Let’s collaborate to transform your ideas into exceptional digital
+            experiences with clarity, precision, and dedication.
           </motion.p>
 
           <motion.div
             className="flex flex-col sm:flex-row gap-6 justify-center"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
           >
             <motion.button
-              className="bg-black text-white font-black py-6 px-12 rounded-full text-xl uppercase tracking-wider relative overflow-hidden group shadow-xl"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="bg-black text-white font-semibold py-5 px-12 rounded-full text-xl uppercase tracking-wide relative overflow-hidden group shadow-lg"
+              whileHover={{ scale: 1.06 }}
+              whileTap={{ scale: 0.96 }}
               onClick={() => handleScrollTo("contact")}
             >
-              <motion.div className="absolute inset-0 bg-gradient-to-r from-black-500 to-black-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <motion.div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <span className="relative z-10">Start Your Project</span>
             </motion.button>
           </motion.div>
