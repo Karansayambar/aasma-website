@@ -682,24 +682,57 @@ const AboutUs = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 px-4 bg-gradient-to-br from-amber-500 via-blue-500 to-amber-500 relative overflow-hidden">
+      <section className="relative py-32 px-4 bg-gradient-to-br from-[#FF6A00] via-[#FF8A30] to-[#ff6a00b9] overflow-hidden">
+        {/* 🔶 Soft Professional Orange Glow Blobs */}
         <motion.div
-          className="absolute inset-0"
+          className="absolute -top-40 -left-40 w-[450px] h-[450px] bg-amber-400/25 rounded-full blur-3xl"
+          animate={{ x: [0, 35, 0], y: [0, -35, 0] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        <motion.div
+          className="absolute bottom-0 right-0 w-[450px] h-[450px] bg-amber-300/20 rounded-full blur-3xl"
+          animate={{ x: [0, -25, 0], y: [0, 25, 0] }}
+          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        {/* 🔶 Elegant Very-Soft Mesh Grid */}
+        <motion.div
+          className="absolute inset-0 opacity-[0.12]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, rgba(0,0,0,0.15) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
           animate={{
             backgroundPosition: ["0% 0%", "100% 100%"],
           }}
           transition={{
-            duration: 20,
+            duration: 22,
             repeat: Infinity,
             repeatType: "reverse",
           }}
+        />
+
+        {/* 🔶 Warm Aurora Highlight */}
+        <motion.div
+          className="absolute inset-0 mix-blend-overlay opacity-30"
           style={{
-            backgroundImage:
-              "radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px)",
-            backgroundSize: "50px 50px",
+            background:
+              "linear-gradient(120deg, rgba(255,255,255,0.15), rgba(255,180,80,0.15), rgba(255,200,120,0.1))",
+            backgroundSize: "300% 300%",
+          }}
+          animate={{
+            backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+          }}
+          transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: "easeInOut",
           }}
         />
 
+        {/* ===================== CONTENT ===================== */}
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <motion.h2
             className="text-5xl md:text-8xl font-black text-black mb-8"
@@ -732,17 +765,12 @@ const AboutUs = () => {
             transition={{ delay: 0.5 }}
           >
             <motion.button
-              className="bg-black text-white font-black py-6 px-12 rounded-full text-xl uppercase tracking-wider relative overflow-hidden group"
+              className="bg-black text-white font-black py-6 px-12 rounded-full text-xl uppercase tracking-wider relative overflow-hidden group shadow-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => handleScrollTo("contact")}
             >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-100"
-                initial={{ x: "-100%" }}
-                whileHover={{ x: 0 }}
-                transition={{ duration: 0.3 }}
-              />
+              <motion.div className="absolute inset-0 bg-gradient-to-r from-black-500 to-black-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <span className="relative z-10">Start Your Project</span>
             </motion.button>
           </motion.div>

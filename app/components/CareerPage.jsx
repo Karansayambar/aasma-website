@@ -100,7 +100,7 @@ const CareerPage = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-4 text-gray-600 max-w-2xl mx-auto text-lg"
         >
-          Build your career with AAsma Constructions. We're looking for talented
+          Build your career with Aasma Infraventures. We're looking for talented
           individuals passionate about shaping the future.
         </motion.p>
       </div>

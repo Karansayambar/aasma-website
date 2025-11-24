@@ -366,7 +366,7 @@ const UpcomingProjects = () => {
               Early Bird Benefits
             </h2>
             <p className="text-xl text-neutral-600 font-light">
-              Advantages of pre-booking with AAsma Constructions
+              Advantages of pre-booking with Aasma Infraventures
             </p>
           </div>
 

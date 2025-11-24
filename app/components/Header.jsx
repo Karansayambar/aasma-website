@@ -47,7 +47,7 @@ const Header = () => {
           <div className="text-center lg:text-left">
             <p
               className={`text-xl sm:text-xl md:2xl font-bold whitespace-nowrap transition-colors duration-300 ${
-                scrolled ? "text-gray-900" : "text-white"
+                scrolled ? "text-amber-500" : "text-amber-500"
               }`}
             >
               Aasma Infraventures
@@ -56,7 +56,7 @@ const Header = () => {
               initial={{ width: 0 }}
               animate={{ width: 200 }}
               transition={{ duration: 1, delay: 0.5 }}
-              className="h-px bg-emerald-700"
+              className="h-px bg-gray-500"
             />
           </div>
 
