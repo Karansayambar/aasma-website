@@ -237,7 +237,7 @@ const Projects = () => {
       case "Ready to Move":
         return "bg-emerald-500/90 text-white";
       case "Under Construction":
-        return "bg-amber-500/90 text-white";
+        return "bg-red-500/90 text-white";
       case "Pre-Launch":
         return "bg-blue-500/90 text-white";
       default:
@@ -305,7 +305,7 @@ const Projects = () => {
               <div className="text-xs text-neutral-500 uppercase tracking-wider mb-1">
                 Starting Price
               </div>
-              <div className="text-xl font-bold text-amber-600">
+              <div className="text-xl font-bold text-red-600">
                 {project.price}
               </div>
             </div>
@@ -336,7 +336,7 @@ const Projects = () => {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="flex-1 bg-neutral-900 hover:bg-amber-500 text-white py-3 font-semibold transition-all duration-300 flex items-center justify-center gap-2"
+              className="flex-1 bg-neutral-900 hover:bg-red-500 text-white py-3 font-semibold transition-all duration-300 flex items-center justify-center gap-2"
             >
               View Details
               <span>→</span>
@@ -365,7 +365,7 @@ const Projects = () => {
           className="text-center mb-12"
         >
           <div className="inline-block mb-4">
-            <span className="text-amber-500 text-sm font-semibold tracking-[0.3em] uppercase border-l-4 border-amber-500 pl-4">
+            <span className="text-red-500 text-sm font-semibold tracking-[0.3em] uppercase border-l-4 border-red-500 pl-4">
               Our Portfolio
             </span>
           </div>
@@ -434,7 +434,7 @@ const Projects = () => {
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="text-white"
             >
-              <div className="text-4xl font-bold text-amber-400 mb-2">
+              <div className="text-4xl font-bold text-red-400 mb-2">
                 {stat.num}
               </div>
               <div className="text-sm text-white/70 font-light uppercase tracking-wider">
@@ -451,7 +451,7 @@ const Projects = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="max-w-6xl mx-auto bg-gradient-to-r from-amber-500 to-orange-500 p-16 text-center relative overflow-hidden"
+        className="max-w-6xl mx-auto bg-gradient-to-r from-red-500 to-red-300 p-16 text-center relative overflow-hidden"
       >
         <div
           className="absolute inset-0 opacity-10"

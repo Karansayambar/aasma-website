@@ -46,9 +46,9 @@ const HeroPage = () => {
         </video>
 
         {/* Gradient overlays - lighter for video visibility */}
-        <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/80 via-slate-900/40 to-neutral-900/80 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/10 via-slate-900/40 to-neutral-900/80 pointer-events-none"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/70 via-transparent to-neutral-900/80 pointer-events-none"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-neutral-900/50 via-transparent to-neutral-900/50 pointer-events-none"></div>
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-neutral-900/50 via-transparent to-neutral-900/50 pointer-events-none"></div> */}
 
         {/* Subtle grid overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none"></div>
@@ -73,9 +73,9 @@ const HeroPage = () => {
                   initial={{ width: 0 }}
                   animate={{ width: 60 }}
                   transition={{ duration: 1, delay: 0.5 }}
-                  className="h-px bg-amber-500"
+                  className="h-px bg-red-500"
                 />
-                <div className="text-amber-500 text-sm font-light tracking-widest uppercase">
+                <div className="text-red-500 text-sm font-light tracking-widest uppercase">
                   Excellence Since 2005
                 </div>
               </motion.div>
@@ -88,9 +88,7 @@ const HeroPage = () => {
               >
                 <span className="block">Building The</span>
                 <span className="block font-normal">Future With</span>
-                <span className="block text-amber-500 font-light">
-                  Precision
-                </span>
+                <span className="block text-red-500 font-light">Precision</span>
               </motion.h1>
 
               <motion.p
@@ -125,7 +123,7 @@ const HeroPage = () => {
                   transition={{ duration: 0.6, delay: 0.8 + i * 0.1 }}
                   className="text-left group"
                 >
-                  <div className="text-2xl lg:text-3xl font-light text-white mb-2 group-hover:text-amber-400 transition-colors duration-300">
+                  <div className="text-2xl lg:text-3xl font-light text-white mb-2 group-hover:text-red-400 transition-colors duration-300">
                     {stat.number}
                   </div>
                   <div className="text-white/60 text-sm font-light tracking-wide">
@@ -135,7 +133,7 @@ const HeroPage = () => {
                     initial={{ width: 0 }}
                     whileInView={{ width: "100%" }}
                     transition={{ duration: 1, delay: 1 + i * 0.1 }}
-                    className="h-0.5 bg-amber-400/30 mt-3 group-hover:bg-amber-500/60 transition-colors"
+                    className="h-0.5 bg-red-400/30 mt-3 group-hover:bg-red-500/60 transition-colors"
                   />
                 </motion.div>
               ))}
@@ -155,13 +153,13 @@ const HeroPage = () => {
                   backgroundColor: "rgba(16, 185, 129, 0.1)",
                 }}
                 whileTap={{ scale: 0.98 }}
-                className="group flex items-center gap-6 px-8 py-4 text-white font-light text-lg border border-amber-400/30 hover:border-amber-400 transition-all duration-500 backdrop-blur-sm"
+                className="group flex items-center gap-6 px-8 py-4 text-white font-light text-lg border border-red-400/30 hover:border-red-400 transition-all duration-500 backdrop-blur-sm"
               >
                 <span>View Our Portfolio</span>
                 <motion.span
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="text-amber-400"
+                  className="text-red-400"
                 >
                   →
                 </motion.span>
@@ -216,7 +214,7 @@ const HeroPage = () => {
                     className="group p-6 hover:bg-white/5 transition-all duration-500 border border-transparent hover:border-white/10"
                   >
                     <div className="text-2xl mb-4">{service.icon}</div>
-                    <h3 className="text-white font-light text-lg mb-3 group-hover:text-amber-400 transition-colors">
+                    <h3 className="text-white font-light text-lg mb-3 group-hover:text-red-400 transition-colors">
                       {service.title}
                     </h3>
                     <p className="text-white/60 text-sm font-light leading-relaxed">
@@ -226,7 +224,7 @@ const HeroPage = () => {
                       initial={{ width: 0 }}
                       whileInView={{ width: "100%" }}
                       transition={{ duration: 0.8, delay: 1.4 + i * 0.2 }}
-                      className="h-0.5 bg-amber-400/20 mt-4 group-hover:bg-amber-400/40 transition-colors"
+                      className="h-0.5 bg-red-400/20 mt-4 group-hover:bg-red-400/40 transition-colors"
                     />
                   </motion.div>
                 ))}
@@ -265,7 +263,7 @@ const HeroPage = () => {
           <div className="text-white text-xs tracking-widest font-light uppercase md:-rotate-90 origin-center whitespace-nowrap mb-12">
             Scroll to Explore
           </div>
-          <div className="w-px h-20 bg-gradient-to-t from-amber-400 via-amber-400/50 to-transparent" />
+          <div className="w-px h-20 bg-gradient-to-t from-red-400 via-red-400/50 to-transparent" />
         </motion.div>
       </motion.div>
 

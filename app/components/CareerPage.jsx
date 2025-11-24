@@ -92,7 +92,7 @@ const CareerPage = () => {
           transition={{ duration: 0.8 }}
           className="text-5xl font-bold text-gray-900"
         >
-          Join Our <span className="text-yellow-500">Team</span>
+          Join Our <span className="text-red-500">Team</span>
         </motion.h1>
         <motion.p
           initial={{ y: 10, opacity: 0 }}
@@ -115,7 +115,7 @@ const CareerPage = () => {
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white rounded-2xl shadow-2xl p-8 flex items-start gap-6 hover:shadow-yellow-500/40 hover:scale-105 transition-transform"
+              className="bg-white rounded-2xl shadow-2xl p-8 flex items-start gap-6 hover:shadow-red-500/40 hover:scale-105 transition-transform"
             >
               <div className="text-4xl">{benefit.icon}</div>
               <div>
@@ -202,7 +202,7 @@ const CareerPage = () => {
             {/* Resume Upload */}
             <motion.div
               whileHover={{ scale: 1.02 }}
-              className="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center cursor-pointer hover:border-yellow-500 transition-colors"
+              className="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center cursor-pointer hover:border-red-500 transition-colors"
             >
               <input
                 type="file"
@@ -249,7 +249,7 @@ const CareerPage = () => {
               type="submit"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-4 rounded-xl text-lg shadow-lg transition-all"
+              className="w-full bg-red-500 hover:bg-red-600 text-gray-900 font-bold py-4 rounded-xl text-lg shadow-lg transition-all"
             >
               Submit Application
             </motion.button>
@@ -283,7 +283,7 @@ const InputField = ({
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors ${
+      className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors ${
         error ? "border-red-500" : "border-gray-300"
       }`}
     />
@@ -311,7 +311,7 @@ const TextAreaField = ({
       value={value}
       onChange={onChange}
       rows={3}
-      className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors ${
+      className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors ${
         error ? "border-red-500" : "border-gray-300"
       }`}
     />

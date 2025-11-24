@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -50,14 +51,14 @@ const Header = () => {
                 scrolled ? "text-amber-500" : "text-amber-500"
               }`}
             >
-              Aasma Infraventures
+              <img src="../logo.png" className="w-24 md:w-40" />
             </p>
-            <motion.div
+            {/* <motion.div
               initial={{ width: 0 }}
               animate={{ width: 200 }}
               transition={{ duration: 1, delay: 0.5 }}
-              className="h-px bg-gray-500"
-            />
+              className="h-px bg-white"
+            /> */}
           </div>
 
           {/* Desktop Navigation */}

@@ -147,7 +147,7 @@ const AboutUs = () => {
               className="text-7xl md:text-9xl font-black mb-6 leading-none"
               style={{
                 background:
-                  "linear-gradient(135deg, #fff 0%, #fbbf24 50%, #f59e0b 100%)",
+                  "linear-gradient(135deg, #e11d48 0%, #b91c1c 50%, #7f1d1d 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -158,12 +158,19 @@ const AboutUs = () => {
               <motion.span
                 animate={{
                   textShadow: [
-                    "0 0 20px #fbbf24",
-                    "0 0 40px #fbbf24",
-                    "0 0 20px #fbbf24",
+                    "0 0 20px #e11d48",
+                    "0 0 40px #b91c1c",
+                    "0 0 20px #e11d48",
                   ],
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
+                style={{
+                  background:
+                    "linear-gradient(135deg, #e11d48 0%, #b91c1c 50%, #7f1d1d 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
               >
                 LEGACIES
               </motion.span>
@@ -190,7 +197,7 @@ const AboutUs = () => {
               className="flex items-center gap-2"
               whileHover={{ scale: 1.1 }}
             >
-              <span className="text-amber-500">30+</span>
+              <span className="text-red-500">30+</span>
               <span className="text-sm text-gray-400">PROJECTS</span>
             </motion.div>
             <span className="text-gray-600">|</span>
@@ -198,7 +205,7 @@ const AboutUs = () => {
               className="flex items-center gap-2"
               whileHover={{ scale: 1.1 }}
             >
-              <span className="text-amber-500">500+</span>
+              <span className="text-red-500">500+</span>
               <span className="text-sm text-gray-400">UNITS</span>
             </motion.div>
             <span className="text-gray-600">|</span>
@@ -206,7 +213,7 @@ const AboutUs = () => {
               className="flex items-center gap-2"
               whileHover={{ scale: 1.1 }}
             >
-              <span className="text-amber-500">20+</span>
+              <span className="text-red-500">20+</span>
               <span className="text-sm text-gray-400">YEARS</span>
             </motion.div>
             <span className="text-gray-600">|</span>
@@ -214,7 +221,7 @@ const AboutUs = () => {
               className="flex items-center gap-2"
               whileHover={{ scale: 1.1 }}
             >
-              <span className="text-amber-500">98%</span>
+              <span className="text-red-500">98%</span>
               <span className="text-sm text-gray-400">Client Satisfaction</span>
             </motion.div>
           </motion.div>
@@ -225,9 +232,9 @@ const AboutUs = () => {
           animate={{ y: [0, 20, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <div className="w-8 h-12 border-2 border-amber-500 rounded-full flex justify-center pt-2">
+          <div className="w-8 h-12 border-2 border-red-500 rounded-full flex justify-center pt-2">
             <motion.div
-              className="w-2 h-2 bg-amber-500 rounded-full"
+              className="w-2 h-2 bg-red-500 rounded-full"
               animate={{ y: [0, 20, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             />
@@ -245,7 +252,7 @@ const AboutUs = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            BY THE <span className="text-amber-500">NUMBERS</span>
+            BY THE <span className="text-red-500">NUMBERS</span>
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -260,7 +267,7 @@ const AboutUs = () => {
                 whileHover={{ y: -20 }}
               >
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-600 rounded-3xl"
+                  className="absolute inset-0 bg-gradient-to-br from-red-500 to-orange-600 rounded-3xl"
                   animate={{
                     rotate: [0, 5, 0],
                   }}
@@ -270,7 +277,7 @@ const AboutUs = () => {
                     delay: index * 0.2,
                   }}
                 />
-                <div className="relative bg-black border-2 border-amber-500 rounded-3xl p-8 h-full">
+                <div className="relative bg-black border-2 border-red-500 rounded-3xl p-8 h-full">
                   <motion.div
                     className="text-6xl mb-4"
                     animate={{
@@ -285,7 +292,7 @@ const AboutUs = () => {
                   >
                     {stat.icon}
                   </motion.div>
-                  <div className="text-6xl font-black text-amber-500 mb-2">
+                  <div className="text-6xl font-black text-red-500 mb-2">
                     <AnimatedCounter end={stat.number} />
                   </div>
                   <div className="text-gray-400 font-semibold uppercase tracking-wider">
@@ -302,7 +309,7 @@ const AboutUs = () => {
       <section className="py-32 px-4 bg-gray-900 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <motion.div
-            className="absolute top-0 right-0 w-96 h-96 bg-amber-500 rounded-full blur-3xl"
+            className="absolute top-0 right-0 w-96 h-96 bg-red-500 rounded-full blur-3xl"
             animate={{
               scale: [1, 1.5, 1],
               x: [0, 100, 0],
@@ -331,7 +338,7 @@ const AboutUs = () => {
               >
                 OUR
                 <br />
-                <span className="text-amber-500">STORY</span>
+                <span className="text-red-500">STORY</span>
               </motion.h2>
 
               <div className="space-y-6 text-lg text-gray-300 font-light leading-relaxed">
@@ -388,21 +395,21 @@ const AboutUs = () => {
                 transition={{ duration: 0.4 }}
               >
                 {/* Enhanced Background Glow */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-amber-500/30 via-orange-600/20 to-amber-500/30 rounded-3xl blur-3xl opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute -inset-4 bg-gradient-to-r from-red-500/30 via-orange-600/20 to-red-500/30 rounded-3xl blur-3xl opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
 
                 {/* Main Card */}
-                <div className="relative bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-xl rounded-2xl p-8 border border-gray-700/50 group-hover:border-amber-500/60 transition-all duration-500 shadow-2xl shadow-black/50">
+                <div className="relative bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-xl rounded-2xl p-8 border border-gray-700/50 group-hover:border-red-500/60 transition-all duration-500 shadow-2xl shadow-black/50">
                   {/* Header */}
                   <div className="text-center mb-8">
                     <motion.div
-                      className="inline-flex items-center gap-3 text-amber-500 text-sm font-semibold uppercase tracking-wider mb-4"
+                      className="inline-flex items-center gap-3 text-red-500 text-sm font-semibold uppercase tracking-wider mb-4"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: 0.3 }}
                     >
-                      <div className="w-1 h-1 bg-amber-500 rounded-full" />
+                      <div className="w-1 h-1 bg-red-500 rounded-full" />
                       Featured Projects
-                      <div className="w-1 h-1 bg-amber-500 rounded-full" />
+                      <div className="w-1 h-1 bg-red-500 rounded-full" />
                     </motion.div>
                     <h3 className="text-2xl font-bold text-white">
                       Our Portfolio
@@ -446,7 +453,7 @@ const AboutUs = () => {
                         />
 
                         <motion.div
-                          className="relative bg-gray-900 rounded-xl overflow-hidden border border-gray-700/50 group-hover:border-amber-500/50 flex flex-col items-center justify-center aspect-square transition-all duration-500 group-hover:shadow-2xl"
+                          className="relative bg-gray-900 rounded-xl overflow-hidden border border-gray-700/50 group-hover:border-red-500/50 flex flex-col items-center justify-center aspect-square transition-all duration-500 group-hover:shadow-2xl"
                           whileHover={{
                             scale: 1.05,
                             y: -4,
@@ -467,7 +474,7 @@ const AboutUs = () => {
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
 
                             {/* Hover Overlay */}
-                            <div className="absolute inset-0 bg-amber-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="absolute inset-0 bg-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                           </div>
 
                           {/* Content Overlay */}
@@ -484,16 +491,16 @@ const AboutUs = () => {
                                 initial={{ opacity: 0.8 }}
                                 whileHover={{ opacity: 1 }}
                               >
-                                <div className="w-1.5 h-1.5 bg-amber-500 rounded-full" />
+                                <div className="w-1.5 h-1.5 bg-red-500 rounded-full" />
                                 {/* <span className="text-sm font-semibold text-white tracking-wide">
                                   {item.label}
                                 </span> */}
-                                <div className="w-1.5 h-1.5 bg-amber-500 rounded-full" />
+                                <div className="w-1.5 h-1.5 bg-red-500 rounded-full" />
                               </motion.div>
 
                               {/* View Project Text */}
                               <motion.div
-                                className="text-xs text-amber-500 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-1"
+                                className="text-xs text-red-500 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-1"
                                 initial={{ y: 5 }}
                                 whileHover={{ y: 0 }}
                               >
@@ -516,10 +523,10 @@ const AboutUs = () => {
                           </div>
 
                           {/* Corner Accents */}
-                          <div className="absolute top-3 left-3 w-2 h-2 border-t-2 border-l-2 border-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                          <div className="absolute top-3 right-3 w-2 h-2 border-t-2 border-r-2 border-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                          <div className="absolute bottom-3 left-3 w-2 h-2 border-b-2 border-l-2 border-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                          <div className="absolute bottom-3 right-3 w-2 h-2 border-b-2 border-r-2 border-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                          <div className="absolute top-3 left-3 w-2 h-2 border-t-2 border-l-2 border-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                          <div className="absolute top-3 right-3 w-2 h-2 border-t-2 border-r-2 border-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                          <div className="absolute bottom-3 left-3 w-2 h-2 border-b-2 border-l-2 border-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                          <div className="absolute bottom-3 right-3 w-2 h-2 border-b-2 border-r-2 border-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         </motion.div>
                       </motion.div>
                     ))}
@@ -527,10 +534,10 @@ const AboutUs = () => {
                 </div>
 
                 {/* Corner Accents */}
-                <div className="absolute top-4 left-4 w-2 h-2 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute top-4 right-4 w-2 h-2 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute bottom-4 left-4 w-2 h-2 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute bottom-4 right-4 w-2 h-2 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-4 left-4 w-2 h-2 bg-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-4 right-4 w-2 h-2 bg-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-4 left-4 w-2 h-2 bg-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-4 right-4 w-2 h-2 bg-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </motion.div>
             </motion.div>
           </div>
@@ -541,7 +548,7 @@ const AboutUs = () => {
       <section className="py-24 px-4 bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
-        <div className="absolute top-0 left-0 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-0 w-72 h-72 bg-red-500/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-orange-600/5 rounded-full blur-3xl" />
 
         <div className="max-w-7xl mx-auto relative">
@@ -553,10 +560,10 @@ const AboutUs = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 text-amber-500 text-sm font-semibold uppercase tracking-wider mb-4">
-              <div className="w-2 h-2 bg-amber-500 rounded-full" />
+            <div className="inline-flex items-center gap-2 text-red-500 text-sm font-semibold uppercase tracking-wider mb-4">
+              <div className="w-2 h-2 bg-red-500 rounded-full" />
               Our Philosophy
-              <div className="w-2 h-2 bg-amber-500 rounded-full" />
+              <div className="w-2 h-2 bg-red-500 rounded-full" />
             </div>
             <motion.h2
               className="text-4xl md:text-6xl font-bold text-white mb-6"
@@ -565,7 +572,7 @@ const AboutUs = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              Core <span className="text-amber-500">Values</span>
+              Core <span className="text-red-500">Values</span>
             </motion.h2>
             <motion.p
               className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed"
@@ -599,20 +606,20 @@ const AboutUs = () => {
                 }}
               >
                 {/* Hover Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-orange-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-orange-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
 
                 {/* Card */}
-                <div className="relative bg-gradient-to-br from-gray-800/50 to-gray-900/80 backdrop-blur-sm border border-gray-700/50 group-hover:border-amber-500/30 rounded-2xl p-8 h-full transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-amber-500/10">
+                <div className="relative bg-gradient-to-br from-gray-800/50 to-gray-900/80 backdrop-blur-sm border border-gray-700/50 group-hover:border-red-500/30 rounded-2xl p-8 h-full transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-red-500/10">
                   {/* Icon Container */}
                   <motion.div
-                    className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300"
+                    className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-red-500 to-orange-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300"
                     whileHover={{ rotate: 5 }}
                   >
                     <div className="text-2xl text-white">{value.icon}</div>
                   </motion.div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-amber-500 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-red-500 transition-colors duration-300">
                     {value.title}
                   </h3>
                   <p className="text-gray-400 group-hover:text-gray-300 leading-relaxed transition-colors duration-300">
@@ -620,7 +627,7 @@ const AboutUs = () => {
                   </p>
 
                   {/* Bottom Accent */}
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-amber-500 to-orange-600 group-hover:w-3/4 transition-all duration-500 rounded-t-full" />
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-red-500 to-orange-600 group-hover:w-3/4 transition-all duration-500 rounded-t-full" />
                 </div>
               </motion.div>
             ))}
@@ -637,7 +644,7 @@ const AboutUs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            MEET OUR <span className="text-amber-500">LEADERS</span>
+            MEET OUR <span className="text-red-500">LEADERS</span>
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -651,9 +658,9 @@ const AboutUs = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -20 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-600 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
+                <div className="absolute inset-0 bg-gradient-to-br from-red-500 to-orange-600 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
 
-                <div className="relative bg-gradient-to-br from-gray-800 to-black border-2 border-gray-700 group-hover:border-amber-300 rounded-3xl overflow-hidden transition-all duration-500">
+                <div className="relative bg-gradient-to-br from-gray-800 to-black border-2 border-gray-700 group-hover:border-red-300 rounded-3xl overflow-hidden transition-all duration-500">
                   <div className="h-48 relative overflow-hidden">
                     <motion.div
                       className="absolute inset-0 bg-black/50"
@@ -669,7 +676,7 @@ const AboutUs = () => {
                     <h3 className="text-xl font-black text-white mb-2">
                       {member.name}
                     </h3>
-                    <p className="text-amber-500 font-bold mb-2 text-sm uppercase tracking-wider">
+                    <p className="text-red-500 font-bold mb-2 text-sm uppercase tracking-wider">
                       {member.position}
                     </p>
                     <p className="text-gray-400 text-sm">{member.experience}</p>
@@ -758,7 +765,7 @@ const AboutUs = () => {
               whileTap={{ scale: 0.96 }}
               onClick={() => handleScrollTo("contact")}
             >
-              <motion.div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <motion.div className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <span className="relative z-10">Start Your Project</span>
             </motion.button>
           </motion.div>

@@ -78,7 +78,7 @@ const UpcomingProjects = () => {
       case "Coming Soon":
         return "bg-blue-500/90 text-white";
       case "Pre-Registration":
-        return "bg-amber-500/90 text-white";
+        return "bg-red-500/90 text-white";
       default:
         return "bg-neutral-500/90 text-white";
     }
@@ -165,7 +165,7 @@ const UpcomingProjects = () => {
               <div className="text-xs text-neutral-500 uppercase tracking-wider mb-1">
                 Price
               </div>
-              <div className="text-lg font-bold text-amber-600">
+              <div className="text-lg font-bold text-red-600">
                 {project.price}
               </div>
             </div>
@@ -217,7 +217,7 @@ const UpcomingProjects = () => {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="flex-1 bg-neutral-900 hover:bg-amber-500 text-white py-3 font-semibold transition-all duration-300 flex items-center justify-center gap-2"
+              className="flex-1 bg-neutral-900 hover:bg-red-500 text-white py-3 font-semibold transition-all duration-300 flex items-center justify-center gap-2"
             >
               Register Interest
               <span>→</span>
@@ -247,13 +247,13 @@ const UpcomingProjects = () => {
           className="text-center mb-16"
         >
           <div className="inline-block mb-4">
-            <div className="flex items-center gap-3 border-l-4 border-amber-500 pl-4">
+            <div className="flex items-center gap-3 border-l-4 border-red-500 pl-4">
               <motion.div
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="w-2 h-2 bg-amber-500 rounded-full"
+                className="w-2 h-2 bg-red-500 rounded-full"
               />
-              <span className="text-amber-500 text-sm font-semibold tracking-[0.3em] uppercase">
+              <span className="text-red-500 text-sm font-semibold tracking-[0.3em] uppercase">
                 Coming Soon
               </span>
             </div>
@@ -339,9 +339,9 @@ const UpcomingProjects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="bg-neutral-800 p-6 border-l-4 border-amber-500 hover:bg-neutral-700 transition-all duration-300"
+                className="bg-neutral-800 p-6 border-l-4 border-red-500 hover:bg-neutral-700 transition-all duration-300"
               >
-                <div className="text-amber-400 text-3xl font-bold mb-2">
+                <div className="text-red-400 text-3xl font-bold mb-2">
                   {item.quarter}
                 </div>
                 <div className="text-white text-lg font-semibold mb-2">
@@ -400,7 +400,7 @@ const UpcomingProjects = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="bg-neutral-50 p-6 text-center hover:bg-amber-50 transition-all duration-300 border border-neutral-200"
+                className="bg-neutral-50 p-6 text-center hover:bg-red-50 transition-all duration-300 border border-neutral-200"
               >
                 <div className="text-5xl mb-4">{benefit.icon}</div>
                 <h3 className="text-lg font-bold text-neutral-900 mb-2">
@@ -418,7 +418,7 @@ const UpcomingProjects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-gradient-to-r from-amber-500 to-orange-500 p-16 text-center relative overflow-hidden"
+          className="bg-gradient-to-r from-red-500 to-red-300 p-16 text-center relative overflow-hidden"
         >
           <div
             className="absolute inset-0 opacity-10"
